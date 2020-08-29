@@ -17,6 +17,9 @@
         app:layout_constraintTop_toTopOf="parent" >
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"
+            app:tabTextColor="@color/textColor"
+            app:tabIndicatorColor="@color/textColor"
+            android:background="@color/colorPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </androidx.viewpager.widget.ViewPager>
