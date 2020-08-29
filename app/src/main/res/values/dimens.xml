@@ -17,4 +17,10 @@
     <dimen name="title_size_extra_large">30sp</dimen>
     <dimen name="edit_text_radius">8dp</dimen>
     <dimen name="image_icon_size">150dp</dimen>
+    <dimen name="learner_badge_width">120dp</dimen>
+    <dimen name="learner_badge_height">100dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_top_medium">24dp</dimen>
+    <dimen name="card_radius">8dp</dimen>
+    <dimen name="card_elevation">10dp</dimen>
 </resources>
