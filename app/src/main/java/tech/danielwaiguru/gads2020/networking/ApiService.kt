@@ -12,6 +12,6 @@ interface ApiService {
     }
     @GET("/api/skilliq")
     fun getTopIQLeaders(){
-        
+
     }
 }

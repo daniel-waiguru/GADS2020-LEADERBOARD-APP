@@ -1,6 +1,9 @@
 package tech.danielwaiguru.gads2020.di
 
+import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Converter
@@ -8,7 +11,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import tech.danielwaiguru.gads2020.networking.ApiService
 import javax.inject.Singleton
-
+@Module
+@InstallIn(ApplicationComponent::class)
 object NetworkingModule {
     private const val BASE_URL = "https://gadsapi.herokuapp.com"
     @Provides
