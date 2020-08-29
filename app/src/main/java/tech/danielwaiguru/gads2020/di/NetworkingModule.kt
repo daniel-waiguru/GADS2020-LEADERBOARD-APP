@@ -6,6 +6,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import tech.danielwaiguru.gads2020.networking.ApiService
 import javax.inject.Singleton
 
 object NetworkingModule {
@@ -31,6 +32,6 @@ object NetworkingModule {
     @Singleton
     @Provides
     fun apiServiceBuilder(retrofit: Retrofit): ApiService {
-        retrofit.create(ApiService::class.jav)
+        return retrofit.create(ApiService::class.java)
     }
 }
