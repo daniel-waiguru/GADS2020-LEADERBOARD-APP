@@ -6,7 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import tech.danielwaiguru.gads2020.models.LearningLeader
 import tech.danielwaiguru.gads2020.models.Resource
 import tech.danielwaiguru.gads2020.models.SkillIQLeader
 import tech.danielwaiguru.gads2020.repositories.MainRepository

@@ -37,6 +37,7 @@
             app:layout_constraintStart_toEndOf="@id/topLearnerBadge"
             />
         <TextView
+            android:id="@+id/hoursAndCountry"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textSize="@dimen/text_size"
