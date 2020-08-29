@@ -1,5 +1,7 @@
 package tech.danielwaiguru.gads2020.models
-
+/**
+ * Represents the Success, Loading and Error cases from the Remote API.
+ */
 sealed class Resource<T>(
     val data: T? = null,
     val message: String? = null

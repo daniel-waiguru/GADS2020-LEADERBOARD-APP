@@ -38,4 +38,5 @@ object NetworkingModule {
     fun apiServiceBuilder(retrofit: Retrofit): ApiService {
         return retrofit.create(ApiService::class.java)
     }
+
 }
