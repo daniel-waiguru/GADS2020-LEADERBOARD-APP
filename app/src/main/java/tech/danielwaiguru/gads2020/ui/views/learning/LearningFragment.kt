@@ -11,7 +11,7 @@ import tech.danielwaiguru.gads2020.ui.viewmodels.LearningLeaderViewModel
 
 @AndroidEntryPoint
 class LearningFragment : Fragment() {
-    private val learningLeaderViewModel: LearningLeaderViewModel by viewModel()
+    //private val learningLeaderViewModel: LearningLeaderViewModel by viewModel()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
