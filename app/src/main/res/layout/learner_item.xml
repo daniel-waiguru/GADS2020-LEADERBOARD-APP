@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:clipToPadding="true"
+    app:cardElevation="@dimen/card_elevation"
+    app:cardCornerRadius="@dimen/card_radius"
+    android:layout_margin="@dimen/margin_small"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/topLearnerBadge"
+            android:layout_width="@dimen/learner_badge_width"
+            android:layout_height="@dimen/learner_badge_height"
+            tools:src="@drawable/top_learner"
+            android:layout_marginStart="@dimen/margin_small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="parent"
+            android:contentDescription="@string/top_leader_badge"
+            />
+        <TextView
+            android:id="@+id/topLearnerName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="Daniel Waiguru"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_medium"
+            app:layout_constraintTop_toTopOf="@id/topLearnerBadge"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textStyle="bold"
+            android:textSize="@dimen/title_size"
+            app:layout_constraintStart_toEndOf="@id/topLearnerBadge"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size"
+            android:layout_marginTop="@dimen/margin_small"
+            app:layout_constraintStart_toStartOf="@id/topLearnerName"
+            app:layout_constraintEnd_toEndOf="@id/topLearnerName"
+            android:layout_marginBottom="@dimen/margin_medium"
+            app:layout_constraintTop_toBottomOf="@id/topLearnerName"
+            app:layout_constraintBottom_toBottomOf="@id/topLearnerBadge"
+            tools:text="223 learning hours, Kenya"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

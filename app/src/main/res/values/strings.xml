@@ -16,4 +16,5 @@
     <string name="submission_error">Submission not Successful</string>
     <string name="project_submission_success">Project submission success</string>
     <string name="submission_success">Submission Successful</string>
+    <string name="top_leader_badge">Top leader badge</string>
 </resources>
