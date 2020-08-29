@@ -1,4 +1,4 @@
-package tech.danielwaiguru.gads2020.ui.views.submission
+package tech.danielwaiguru.gads2020.ui.views.submit
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

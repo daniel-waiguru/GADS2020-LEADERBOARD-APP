@@ -9,5 +9,11 @@
     <string name="last_name">Last Name</string>
     <string name="email_address">Email Address</string>
     <string name="github_link">Project on GITHUB (link)</string>
-    <string name="submit">Submit</string>
+    <string name="cancel_icon">Cancel Icon</string>
+    <string name="confirm_submit">Are you sure?</string>
+    <string name="yes">Yes</string>
+    <string name="project_submission_error">Project submission error</string>
+    <string name="submission_error">Submission not Successful</string>
+    <string name="project_submission_success">Project submission success</string>
+    <string name="submission_success">Submission Successful</string>
 </resources>

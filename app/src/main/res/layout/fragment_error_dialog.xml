@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/padding_medium"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.views.submit.dialog.ErrorDialogFragment">
+    <ImageView
+        android:id="@+id/errorIcon"
+        android:layout_width="@dimen/image_icon_size"
+        android:layout_height="@dimen/image_icon_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_warning"
+        android:layout_margin="@dimen/margin_medium"
+        android:contentDescription="@string/project_submission_error"
+        app:tint="@color/error" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/errorIcon"
+        app:layout_constraintEnd_toEndOf="@id/errorIcon"
+        app:layout_constraintTop_toBottomOf="@id/errorIcon"
+        android:text="@string/submission_error"
+        android:textStyle="bold"
+        android:textSize="@dimen/text_size"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

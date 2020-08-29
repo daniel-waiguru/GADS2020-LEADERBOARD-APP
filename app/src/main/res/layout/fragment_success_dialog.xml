@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/padding_medium"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.views.submit.dialog.SuccessDialogFragment">
+    <ImageView
+        android:id="@+id/successIcon"
+        android:layout_width="@dimen/image_icon_size"
+        android:layout_height="@dimen/image_icon_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="@dimen/padding_medium"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_check"
+        android:contentDescription="@string/project_submission_success"
+        app:tint="@color/success" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/successIcon"
+        app:layout_constraintEnd_toEndOf="@id/successIcon"
+        app:layout_constraintTop_toBottomOf="@id/successIcon"
+        android:text="@string/submission_success"
+        android:textSize="@dimen/text_size"
+        android:textStyle="bold"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
