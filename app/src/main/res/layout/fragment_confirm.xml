@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/padding_medium"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.views.submit.dialog.ConfirmDialogFragment">
+    <ImageView
+        android:id="@+id/cancelImageView"
+        android:layout_width="@dimen/image_size"
+        android:layout_height="@dimen/image_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_cancel"
+        android:layout_margin="@dimen/margin_medium"
+        android:contentDescription="@string/cancel_icon" />
+    <TextView
+        android:id="@+id/quizText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/confirm_submit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cancelImageView"
+        android:textSize="@dimen/title_size_extra_large"
+        android:layout_marginTop="@dimen/margin_top"
+        android:textStyle="bold"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/yes"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/quizText"
+        android:layout_marginTop="@dimen/margin_top"
+        android:textColor="@color/colorAccent"
+        android:textAllCaps="false"
+        android:paddingStart="@dimen/button_padding"
+        android:paddingEnd="@dimen/button_padding"
+        android:textSize="@dimen/title_size"
+        android:background="@drawable/outlined_button"
+        android:textColorHighlight="@color/colorAccent"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
