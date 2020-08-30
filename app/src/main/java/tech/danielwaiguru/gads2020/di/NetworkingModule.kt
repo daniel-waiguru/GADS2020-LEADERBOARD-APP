@@ -1,5 +1,6 @@
 package tech.danielwaiguru.gads2020.di
 
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -10,6 +11,7 @@ import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import tech.danielwaiguru.gads2020.networking.ApiService
+import tech.danielwaiguru.gads2020.networking.RemoteDataSource
 import tech.danielwaiguru.gads2020.networking.RemoteDataSourceImpl
 import javax.inject.Singleton
 @Module
@@ -39,8 +41,8 @@ object NetworkingModule {
     fun apiServiceBuilder(retrofit: Retrofit): ApiService {
         return retrofit.create(ApiService::class.java)
     }
-    @Singleton
+    /*@Singleton
     @Provides
     fun provideRemoteDataSource(apiService: ApiService) =
-        RemoteDataSourceImpl(apiService)
+        RemoteDataSourceImpl(apiService)*/
 }
