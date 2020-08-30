@@ -29,5 +29,6 @@ class LearningLeaderAdapter : RecyclerView.Adapter<MainViewHolder>() {
     }
     internal fun initData(leaders: List<LearningLeader>) {
         this.leadersList = leaders
+        notifyDataSetChanged()
     }
 }

@@ -18,7 +18,7 @@ class RemoteDataSourceImpl @Inject constructor(private val apiService: ApiServic
     override suspend fun getTopIQLeaders(): Resource<List<SkillIQLeader>> =
         try {
             val result = apiService.getTopIQLeaders()
-            Resource.Success(result.iqLeaders)
+            Resource.Success(result.body()!!)
         }
         catch (error: Throwable){
             Resource.Error(error.toString())
