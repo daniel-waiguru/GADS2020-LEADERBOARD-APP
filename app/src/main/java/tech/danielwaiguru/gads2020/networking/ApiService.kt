@@ -11,7 +11,7 @@ import tech.danielwaiguru.gads2020.models.response.SkillIQLeaderResponse
  */
 interface ApiService {
     @GET("/api/hours")
-    suspend fun getTopLearningLeaders(): Response<List<LearningLeader>>
+    suspend fun getTopLearningLeaders(): List<LearningLeader>
     @GET("/api/skilliq")
     suspend fun getTopIQLeaders(): SkillIQLeaderResponse
 }

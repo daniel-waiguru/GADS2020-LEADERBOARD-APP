@@ -9,7 +9,7 @@ class RemoteDataSourceImpl @Inject constructor(private val apiService: ApiServic
     override suspend fun getTopLearningLeaders(): Resource<List<LearningLeader>> =
         try {
             val result = apiService.getTopLearningLeaders()
-           Resource.Success(result.body()!!)
+           Resource.Success(result)
         }
         catch (error: Throwable){
             Resource.Error(error.message.toString())

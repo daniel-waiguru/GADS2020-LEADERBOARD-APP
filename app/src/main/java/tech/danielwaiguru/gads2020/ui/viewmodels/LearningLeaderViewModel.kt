@@ -19,7 +19,6 @@ class LearningLeaderViewModel
     private val _learningLeaders: MutableLiveData<List<LearningLeader>> = MutableLiveData()
     val learningLeaders : LiveData<List<LearningLeader>>
     get() = _learningLeaders
-
     /**
      * get Learning Leaders and update leadingLeaders LiveData
      */
@@ -27,9 +26,12 @@ class LearningLeaderViewModel
         viewModelScope.launch {
             when (val result = mainRepository.fetchLearningLeaders()){
                 is Resource.Success -> {
-                    Timber.d(result.data?.size.toString())
-                    _learningLeaders.value = result.data
-                    Timber.d(_learningLeaders.value?.size.toString())
+                    val leaders = ArrayList<LearningLeader>()
+                    result.data?.forEach {
+                        leaders.add(it)
+                    }
+                    Timber.d(leaders.size.toString())
+                    _learningLeaders.value = leaders
                 }
                 is Resource.Loading -> {
 

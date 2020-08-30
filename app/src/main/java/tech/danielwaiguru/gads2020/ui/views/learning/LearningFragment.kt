@@ -12,13 +12,17 @@ import kotlinx.android.synthetic.main.fragment_learning.*
 import tech.danielwaiguru.gads2020.R
 import tech.danielwaiguru.gads2020.adapters.LearningLeaderAdapter
 import tech.danielwaiguru.gads2020.common.toast
+import tech.danielwaiguru.gads2020.repositories.MainRepository
 import tech.danielwaiguru.gads2020.ui.viewmodels.LearningLeaderViewModel
 import timber.log.Timber
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class LearningFragment : Fragment() {
-    private val viewModel: LearningLeaderViewModel by viewModels()
-    private val adapter: LearningLeaderAdapter by lazy { LearningLeaderAdapter() }
+    private val learningLeaderViewModel: LearningLeaderViewModel by viewModels()
+    @Inject
+    lateinit var mainRepository: MainRepository
+    private val learningLeaderAdapter: LearningLeaderAdapter by lazy { LearningLeaderAdapter() }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,17 +34,17 @@ class LearningFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
-        viewModel.fetchLearningLeaders()
-        viewModel.toast.observe(viewLifecycleOwner, {
+        learningLeaderViewModel.fetchLearningLeaders()
+        learningLeaderViewModel.toast.observe(viewLifecycleOwner, {
             requireActivity().toast(it)
         })
-        viewModel.learningLeaders.observe(viewLifecycleOwner, {
+        learningLeaderViewModel.learningLeaders.observe(viewLifecycleOwner, {
             Timber.d(it.size.toString())
-            adapter.submitList(it)
+            learningLeaderAdapter.initData(it)
         })
     }
     private fun setupRecyclerView() = learningRecyclerView.apply {
+        this.adapter = learningLeaderAdapter
         this.layoutManager = LinearLayoutManager(requireContext())
-        this.adapter = adapter
     }
 }
