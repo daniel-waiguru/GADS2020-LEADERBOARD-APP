@@ -3,6 +3,7 @@ package tech.danielwaiguru.gads2020.networking
 import tech.danielwaiguru.gads2020.models.LearningLeader
 import tech.danielwaiguru.gads2020.models.Resource
 import tech.danielwaiguru.gads2020.models.SkillIQLeader
+import timber.log.Timber
 import javax.inject.Inject
 
 class RemoteDataSourceImpl @Inject constructor(private val apiService: ApiService): RemoteDataSource {
@@ -12,7 +13,8 @@ class RemoteDataSourceImpl @Inject constructor(private val apiService: ApiServic
            Resource.Success(result)
         }
         catch (error: Throwable){
-            Resource.Error(error.message.toString())
+            Timber.d(error.message.toString())
+            Resource.Error("Server error encountered!")
         }
 
     override suspend fun getTopIQLeaders(): Resource<List<SkillIQLeader>> =
@@ -21,6 +23,7 @@ class RemoteDataSourceImpl @Inject constructor(private val apiService: ApiServic
             Resource.Success(result.body()!!)
         }
         catch (error: Throwable){
-            Resource.Error(error.toString())
+            Timber.d(error.message.toString())
+            Resource.Error("Server error encountered!")
         }
 }
