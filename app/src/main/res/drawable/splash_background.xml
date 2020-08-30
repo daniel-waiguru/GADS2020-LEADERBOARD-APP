@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android"
     android:opacity="opaque"
-    android:gravity="center">
-
-    <item android:drawable="@color/colorPrimaryDark"/>
-    <item
-        android:bottom="100dp"
-        android:left="100dp"
-        android:right="100dp"
-        android:top="100dp"
+    >
+    <item android:drawable="@drawable/launch"
+        android:gravity="fill"
         >
-        <bitmap
-            android:gravity="center"
-            android:src="@drawable/splash_gads"
-            />
     </item>
 </layer-list>
