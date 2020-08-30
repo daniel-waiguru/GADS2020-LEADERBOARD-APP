@@ -4,9 +4,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/launch"
     tools:context=".ui.views.submit.SubmitActivity">
-
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/margin_small"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@android:color/transparent"
+        app:layout_constraintTop_toTopOf="parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/actionBack"
+                android:layout_width="@dimen/action_image_size"
+                android:layout_height="@dimen/action_image_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/ic_back"
+                android:contentDescription="@string/action_back"
+                android:layout_marginStart="@dimen/margin_medium"
+                />
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/submitToolbar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme"
+                app:titleTextColor="@color/textColor"
+                android:background="@android:color/transparent"
+                />
+            <ImageView
+                android:layout_width="@dimen/logo_width"
+                android:layout_height="@dimen/logo_height"
+                android:layout_marginStart="@dimen/margin_medium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:contentDescription="@string/logo_image"
+                android:src="@drawable/gads_header"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.appbar.AppBarLayout>
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
@@ -18,23 +65,24 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/appBar" />
     <View
         android:id="@+id/separator"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="@dimen/border_width"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title"
         android:background="@drawable/separator_background"
-        android:layout_margin="@dimen/margin"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginEnd="@dimen/margin"
         />
     <EditText
         android:id="@+id/firstNameEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin"
-        android:layout_marginTop="@dimen/margin_top"
+        android:layout_marginTop="@dimen/margin_top_big"
         android:autofillHints="false"
         android:hint="@string/first_name"
         android:inputType="text|textCapWords"
@@ -42,7 +90,7 @@
         android:textStyle="bold"
         android:padding="@dimen/padding_small"
         android:background="@drawable/edittext_background"
-        android:layout_marginEnd="@dimen/margin"
+        android:layout_marginEnd="@dimen/margin_small"
         app:layout_constraintEnd_toStartOf="@+id/lastNameEditText"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -106,8 +154,8 @@
         android:layout_height="wrap_content"
         android:text="@string/submit"
         android:textColor="@color/textColor"
-        android:paddingStart="60dp"
-        android:paddingEnd="60dp"
+        android:paddingStart="@dimen/button_padding"
+        android:paddingEnd="@dimen/button_padding"
         android:textSize="@dimen/text_size"
         android:textAllCaps="false"
         android:textStyle="bold"

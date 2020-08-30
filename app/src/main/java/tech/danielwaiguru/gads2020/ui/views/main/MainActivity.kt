@@ -8,6 +8,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 import tech.danielwaiguru.gads2020.R
 import tech.danielwaiguru.gads2020.adapters.MainPagerAdapter
+import tech.danielwaiguru.gads2020.ui.views.submit.SubmitActivity
+
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private val mainPagerAdapter: MainPagerAdapter by lazy {
@@ -26,9 +28,16 @@ class MainActivity : AppCompatActivity() {
         initUi()
         toolbar.title = getString(R.string.toolbar_title)
         setSupportActionBar(toolbar)
+        initListeners()
+    }
+    private fun initListeners(){
+        submitButton.setOnClickListener { initSubmitActivity() }
     }
     private fun initUi(){
         tabs.setupWithViewPager(fragmentPager)
         fragmentPager.adapter = mainPagerAdapter
+    }
+    private fun initSubmitActivity(){
+        startActivity(Intent(this, SubmitActivity::class.java))
     }
 }

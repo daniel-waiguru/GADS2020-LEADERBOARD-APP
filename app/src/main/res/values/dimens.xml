@@ -23,4 +23,8 @@
     <dimen name="margin_top_medium">24dp</dimen>
     <dimen name="card_radius">8dp</dimen>
     <dimen name="card_elevation">10dp</dimen>
+    <dimen name="margin_top_big">70dp</dimen>
+    <dimen name="action_image_size">40dp</dimen>
+    <dimen name="logo_width">250dp</dimen>
+    <dimen name="logo_height">60dp</dimen>
 </resources>
