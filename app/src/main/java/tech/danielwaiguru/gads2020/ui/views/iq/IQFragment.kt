@@ -6,10 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import tech.danielwaiguru.gads2020.R
+import tech.danielwaiguru.gads2020.ui.viewmodels.IQLeaderViewModel
 
 
 class IQFragment : Fragment() {
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

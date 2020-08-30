@@ -9,6 +9,7 @@ import kotlinx.coroutines.launch
 import tech.danielwaiguru.gads2020.models.LearningLeader
 import tech.danielwaiguru.gads2020.models.Resource
 import tech.danielwaiguru.gads2020.repositories.MainRepository
+import timber.log.Timber
 
 class LearningLeaderViewModel
 @ViewModelInject constructor(private val mainRepository: MainRepository): ViewModel() {
@@ -26,13 +27,15 @@ class LearningLeaderViewModel
         viewModelScope.launch {
             when (val result = mainRepository.fetchLearningLeaders()){
                 is Resource.Success -> {
+                    Timber.d(result.data?.size.toString())
                     _learningLeaders.value = result.data
+                    Timber.d(_learningLeaders.value?.size.toString())
                 }
                 is Resource.Loading -> {
 
                 }
                 is Resource.Error -> {
-                    _toast.value = result.message
+                    _toast.value = result.message.toString()
                 }
             }
         }

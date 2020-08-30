@@ -4,10 +4,11 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 import tech.danielwaiguru.gads2020.R
 import tech.danielwaiguru.gads2020.adapters.MainPagerAdapter
-
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private val mainPagerAdapter: MainPagerAdapter by lazy {
         MainPagerAdapter(supportFragmentManager)

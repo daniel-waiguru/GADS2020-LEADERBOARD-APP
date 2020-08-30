@@ -9,6 +9,7 @@ import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.learner_item.view.*
 import tech.danielwaiguru.gads2020.R
 import tech.danielwaiguru.gads2020.models.LearningLeader
+import timber.log.Timber
 
 class LearningLeaderAdapter : RecyclerView.Adapter<MainViewHolder>() {
     private val diffCallback = object : DiffUtil.ItemCallback<LearningLeader>() {
@@ -20,6 +21,8 @@ class LearningLeaderAdapter : RecyclerView.Adapter<MainViewHolder>() {
     }
     private val differ = AsyncListDiffer(this, diffCallback)
     internal fun submitList(learningLeaders: List<LearningLeader>){
+        Timber.d(learningLeaders.size.toString())
+        Timber.d(learningLeaders[2].name)
         differ.submitList(learningLeaders)
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
