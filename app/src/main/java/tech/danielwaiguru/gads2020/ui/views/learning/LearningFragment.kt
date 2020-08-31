@@ -11,27 +11,23 @@ import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_learning.*
 import tech.danielwaiguru.gads2020.R
 import tech.danielwaiguru.gads2020.adapters.LearningLeaderAdapter
-import tech.danielwaiguru.gads2020.common.toast
+import tech.danielwaiguru.gads2020.common.gone
+import tech.danielwaiguru.gads2020.common.visible
 import tech.danielwaiguru.gads2020.networking.NetworkStatusChecker
-import tech.danielwaiguru.gads2020.repositories.MainRepository
 import tech.danielwaiguru.gads2020.ui.viewmodels.LearningLeaderViewModel
 import timber.log.Timber
-import javax.inject.Inject
 
 @SuppressLint("NewApi")
 @AndroidEntryPoint
 class LearningFragment : Fragment() {
     private val learningLeaderViewModel: LearningLeaderViewModel by viewModels()
     private val networkStatusChecker: NetworkStatusChecker by lazy {
-        NetworkStatusChecker(requireContext().getSystemService(ConnectivityManager::class.java))
+        NetworkStatusChecker(requireActivity().getSystemService(ConnectivityManager::class.java))
     }
-    @Inject
-    lateinit var mainRepository: MainRepository
     private val learningLeaderAdapter: LearningLeaderAdapter by lazy { LearningLeaderAdapter() }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,8 +44,20 @@ class LearningFragment : Fragment() {
         networkStatusChecker.performIfConnectedToInternet(::displayNoNetworkMessage){
             learningLeaderViewModel.fetchLearningLeaders()
         }
-        learningLeaderViewModel.toast.observe(viewLifecycleOwner, {
-            requireActivity().toast(it)
+        learningLeaderViewModel.toast.observe(viewLifecycleOwner, {message ->
+            if (message != null){
+                errorTitle.text = message
+                showErrorView()
+                hideLoading()
+            }
+        })
+        learningLeaderViewModel.loadingState.observe(viewLifecycleOwner, {
+            if (it == true){
+                showLoadingDialog()
+            }
+            else {
+                hideLoading()
+            }
         })
         learningLeaderViewModel.learningLeaders.observe(viewLifecycleOwner, {
             Timber.d(it.size.toString())
@@ -65,8 +73,22 @@ class LearningFragment : Fragment() {
      */
     private fun displayNoNetworkMessage(){
         view?.let {
-            Snackbar.make(it, "Please check your connection and try again", Snackbar.LENGTH_SHORT)
-                .show()
+            errorTitle.text = getText(R.string.no_connection)
+            errorSubtitle.text = getText(R.string.no_connection_error)
+            showErrorView()
         }
+    }
+    private fun showErrorView(){
+        errorView.visible()
+        learningRecyclerView.gone()
+    }
+    private fun showLoadingDialog(){
+        leanerProgressBar.visible()
+        learningRecyclerView.gone()
+        errorView.gone()
+    }
+    private fun hideLoading(){
+        leanerProgressBar.gone()
+        learningRecyclerView.visible()
     }
 }
