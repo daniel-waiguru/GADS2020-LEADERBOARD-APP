@@ -19,4 +19,7 @@
     <string name="top_leader_badge">Top leader badge</string>
     <string name="toolbar_title">LEADERBOARD</string>
     <string name="action_back">Action Back</string>
+    <string name="no_connection">No Connection</string>
+    <string name="no_connection_error">Please check your internet connection and try again</string>
+    <string name="retry">Retry</string>
 </resources>
