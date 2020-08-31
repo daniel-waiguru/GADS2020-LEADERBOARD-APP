@@ -63,10 +63,19 @@ class LearningFragment : Fragment() {
             Timber.d(it.size.toString())
             learningLeaderAdapter.initData(it)
         })
+        initListeners()
+    }
+    private fun initListeners(){
+        retryButton.setOnClickListener { retryDataLoad() }
     }
     private fun setupRecyclerView() = learningRecyclerView.apply {
         this.adapter = learningLeaderAdapter
         this.layoutManager = LinearLayoutManager(requireContext())
+    }
+    private fun retryDataLoad(){
+        networkStatusChecker.performIfConnectedToInternet(::displayNoNetworkMessage){
+            learningLeaderViewModel.learningLeaders
+        }
     }
     /**
      * no network alert

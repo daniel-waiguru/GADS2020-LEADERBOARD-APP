@@ -12,8 +12,8 @@ import tech.danielwaiguru.gads2020.repositories.MainRepository
 
 class IQLeaderViewModel
 @ViewModelInject constructor(private val mainRepository: MainRepository) : ViewModel(){
-    private val _toast: MutableLiveData<String> = MutableLiveData()
-    val toast : LiveData<String>
+    private val _toast: MutableLiveData<String?> = MutableLiveData()
+    val toast : LiveData<String?>
         get() = _toast
     private val _learningLeaders: MutableLiveData<List<SkillIQLeader>> = MutableLiveData()
     val learningLeaders : LiveData<List<SkillIQLeader>>
