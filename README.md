@@ -14,4 +14,5 @@ I have used the following components in development
 ## User interface
 #### Launch/Splash Screen
 
-![App's launch screen](snapshots/splash.png)
+<image src="snapshots/learners1.png" height="500px" />
+
