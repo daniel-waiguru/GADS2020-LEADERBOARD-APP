@@ -20,7 +20,7 @@ I have used the following components in development
 Top 20 learning and Top 20 skill IQ leaders screens populated with data respectively
 
 
-<image src="snapshots/learners1.png" height="600px" />  <image src="snapshots/iq1.png" height="600px" />
+<image src="snapshots/learners1.png" height="600px" />    <image src="snapshots/iq1.png" height="600px" />
 
 #### Project Submit screen
 
@@ -31,6 +31,8 @@ Top 20 learning and Top 20 skill IQ leaders screens populated with data respecti
 No internet screen  and server response error screens respectively 
 
 
-<image src="snapshots/not_internet.png" height="600px" /> <image src="snapshots/error.png" height="600px" />
+<image src="snapshots/not_internet.png" height="600px" />   <image src="snapshots/error.png" height="600px" />
 
-
+Uncomplete Features
+* Offline First - add Room to support offline caching pf data
+* Synchronize data - add WorkManager to sysnchronize data with remote data
