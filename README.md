@@ -1,4 +1,4 @@
-# GADS2020-LEADERBOARD-APP
+# GADS2020-LEADERBOARD-APP - Work in Progress :wrench: :hammer:
 This app interacts with GADS 2020 api and displays a list of Top 20 Learners in Learning Leaders' category and Top 20 Learners in the Skill IQ Leaders' category  
 
 ### Key concepts covered
@@ -33,6 +33,6 @@ No internet screen  and server response error screens respectively
 
 <image src="snapshots/not_internet.png" height="600px" />   <image src="snapshots/error.png" height="600px" />
 
-#### Uncomplete Features
+#### Additional Features - uncomplete
 * Offline First - add Room to support offline caching pf data
-* Synchronize data - add WorkManager to sysnchronize data with remote data
+* Synchronize data :repeat: - add WorkManager to sysnchronize data with remote data
