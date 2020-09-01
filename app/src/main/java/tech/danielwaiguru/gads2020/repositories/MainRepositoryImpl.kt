@@ -13,4 +13,9 @@ class MainRepositoryImpl
 
     override suspend fun fetchIQLeaders(): Resource<List<SkillIQLeader>> =
         remoteDataSource.getTopIQLeaders()
+
+    override suspend fun submitProject(
+        firstName: String, lastName: String, email: String, projectLink: String
+    ): Resource<Void> =
+        remoteDataSource.submitProject(firstName, lastName, email, projectLink)
 }
