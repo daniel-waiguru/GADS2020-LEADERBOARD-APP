@@ -17,7 +17,8 @@ I have used the following components in development
 <image src="snapshots/splash.png" height="600px" />
 
 ##### Top 20 learners and Top 20 skill iq leaders
-<image src="snapshots/learners1.png" height="600px" />
+<image src="snapshots/learners1.png" height="600px" /> <image src="snapshots/iq1.png" height="600px" />
+
 <image src="snapshots/iq1.png" height="600px" />
 
 #### Project Submit screen
