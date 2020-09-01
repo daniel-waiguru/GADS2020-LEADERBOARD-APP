@@ -9,4 +9,6 @@ This app interacts with GADS 2020 api and displays a list of Top 20 Learners in 
 
 I have used the following components in development
 * ViewModel to manage UI's data in a lifecycle concious way
-* LiveData to handle data in lifecyle manner helping to reduce memory leaks nad ensure the UI is always up to date with the data
+* LiveData to handle data in lifecyle-aware manner helping to reduce memory leaks and ensure the UI is always up to date with the data
+
+## User interface
