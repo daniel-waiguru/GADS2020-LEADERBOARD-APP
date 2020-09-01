@@ -33,6 +33,6 @@ No internet screen  and server response error screens respectively
 
 <image src="snapshots/not_internet.png" height="600px" />   <image src="snapshots/error.png" height="600px" />
 
-Uncomplete Features
+#### Uncomplete Features
 * Offline First - add Room to support offline caching pf data
 * Synchronize data - add WorkManager to sysnchronize data with remote data
