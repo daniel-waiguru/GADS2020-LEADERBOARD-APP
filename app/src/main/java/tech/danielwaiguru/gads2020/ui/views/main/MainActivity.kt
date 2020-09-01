@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         initListeners()
     }
     private fun initListeners(){
-        submitButton.setOnClickListener { initSubmitActivity() }
+        initSubmitButton.setOnClickListener { initSubmitActivity() }
     }
     private fun initUi(){
         tabs.setupWithViewPager(fragmentPager)

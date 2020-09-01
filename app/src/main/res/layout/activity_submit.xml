@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/launch"
+    android:id="@+id/rootView"
     tools:context=".ui.views.submit.SubmitActivity">
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
@@ -18,17 +19,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <ImageView
-                android:id="@+id/actionBack"
-                android:layout_width="@dimen/action_image_size"
-                android:layout_height="@dimen/action_image_size"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:src="@drawable/ic_back"
-                android:contentDescription="@string/action_back"
-                android:layout_marginStart="@dimen/margin_medium"
-                />
+
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/submitToolbar"
                 app:layout_constraintStart_toStartOf="parent"
@@ -51,6 +42,17 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:contentDescription="@string/logo_image"
                 android:src="@drawable/gads_header"
+                />
+            <ImageView
+                android:id="@+id/actionBack"
+                android:layout_width="@dimen/action_image_size"
+                android:layout_height="@dimen/action_image_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/ic_back"
+                android:contentDescription="@string/action_back"
+                android:layout_marginStart="@dimen/margin_medium"
                 />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.appbar.AppBarLayout>
@@ -150,6 +152,7 @@
         android:hint="@string/github_link"
         />
     <Button
+        android:id="@+id/submitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/submit"

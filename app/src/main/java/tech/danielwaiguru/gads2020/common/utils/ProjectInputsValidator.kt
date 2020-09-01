@@ -2,7 +2,7 @@ package tech.danielwaiguru.gads2020.common.utils
 
 import android.util.Patterns
 
-class ProjectCredentialsValidator : Validator {
+class ProjectInputsValidator : Validator {
     lateinit var firstName: String
     lateinit var lastName: String
     lateinit var email: String
