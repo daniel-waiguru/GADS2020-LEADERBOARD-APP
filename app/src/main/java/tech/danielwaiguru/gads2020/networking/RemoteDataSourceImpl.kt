@@ -26,4 +26,20 @@ class RemoteDataSourceImpl @Inject constructor(private val apiService: ApiServic
             Timber.d(error.message.toString())
             Resource.Error("Server error encountered!")
         }
+
+    override suspend fun submitProject(
+        firstName: String,
+        lastName: String,
+        emailAddress: String,
+        projectLink: String
+    ): Resource<Void> =
+        try {
+            val result = apiService.submitProject(
+                firstName, lastName, emailAddress, projectLink
+            )
+            Resource.Success(result.body()!!)
+        }
+        catch (error: Throwable){
+            Resource.Error(error.message.toString(), null)
+        }
 }

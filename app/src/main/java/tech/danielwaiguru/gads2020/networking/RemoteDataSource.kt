@@ -10,4 +10,10 @@ import tech.danielwaiguru.gads2020.models.SkillIQLeader
 interface RemoteDataSource {
     suspend fun getTopLearningLeaders(): Resource<List<LearningLeader>>
     suspend fun getTopIQLeaders(): Resource<List<SkillIQLeader>>
+    suspend fun submitProject(
+        firstName: String,
+        lastName: String,
+        emailAddress: String,
+        projectLink: String
+    ): Resource<Void>
 }
