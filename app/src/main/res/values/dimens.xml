@@ -28,4 +28,6 @@
     <dimen name="logo_width">250dp</dimen>
     <dimen name="logo_height">60dp</dimen>
     <dimen name="progress_bar">80dp</dimen>
+    <dimen name="iq_margin_top">10dp</dimen>
+    <dimen name="country_margin">6dp</dimen>
 </resources>
