@@ -22,4 +22,8 @@
     <string name="no_connection">No Connection</string>
     <string name="no_connection_error">Please check your internet connection and try again</string>
     <string name="retry">Retry</string>
+    <string name="first_name_error">First name is required!</string>
+    <string name="last_name_error">Last name is required!</string>
+    <string name="email_error">Enter a valid email address!</string>
+    <string name="link_error">Project link is required!</string>
 </resources>

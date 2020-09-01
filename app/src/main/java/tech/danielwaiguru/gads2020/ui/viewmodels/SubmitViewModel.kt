@@ -15,9 +15,9 @@ class SubmitViewModel @ViewModelInject constructor(
     private val _loadingState: MutableLiveData<Boolean> = MutableLiveData()
     val loadingState: LiveData<Boolean>
     get() = _loadingState
-    private val _submissionState: MutableLiveData<Boolean> = MutableLiveData()
-    val submissionState: LiveData<Boolean>
-    get() = _submissionState
+    private val _submissionSuccess: MutableLiveData<Boolean> = MutableLiveData()
+    val submissionSuccess: LiveData<Boolean>
+    get() = _submissionSuccess
     fun submitProject(
         firstName: String, lastName: String, emailAddress: String, projectLink: String
     ) = viewModelScope.launch {
@@ -27,15 +27,15 @@ class SubmitViewModel @ViewModelInject constructor(
         )
         when (result){
             is Resource.Success -> {
-                _submissionState.postValue(true)
+                _submissionSuccess.postValue(true)
                 _loadingState.postValue(false)
             }
             is Resource.Loading -> {
                 _loadingState.postValue(true)
-                _submissionState.postValue(false)
+                _submissionSuccess.postValue(false)
             }
             is Resource.Error -> {
-                _submissionState.postValue(false)
+                _submissionSuccess.postValue(false)
                 _loadingState.postValue(false)
             }
         }

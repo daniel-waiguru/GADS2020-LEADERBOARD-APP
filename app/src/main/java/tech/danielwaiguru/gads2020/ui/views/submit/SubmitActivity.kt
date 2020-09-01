@@ -7,7 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_submit.*
 import tech.danielwaiguru.gads2020.R
+import tech.danielwaiguru.gads2020.common.gone
 import tech.danielwaiguru.gads2020.common.utils.ProjectInputsValidator
+import tech.danielwaiguru.gads2020.common.visible
 import tech.danielwaiguru.gads2020.ui.viewmodels.SubmitViewModel
 import tech.danielwaiguru.gads2020.ui.views.main.MainActivity
 import tech.danielwaiguru.gads2020.ui.views.submit.dialog.ConfirmDialogFragment
@@ -20,36 +22,29 @@ class SubmitActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_submit)
         //setSupportActionBar(submitToolbar)
+        submitViewModel.loadingState.observe(this, {loading ->
+            if (loading == true){
+                showLoading()
+            }
+            else
+            {
+                hideLoading()
+            }
+        })
         initListeners()
     }
     private fun initListeners() {
         actionBack.setOnClickListener { initUi() }
-        submitButton.setOnClickListener { initConfirmDialog() }
-    }
-    private fun subscribeToLiveData(){
-        submitViewModel.loadingState.observe(this, {
-
-        })
-        submitViewModel.submissionState.observe(this, {
-
-        })
+        confirmButton.setOnClickListener { initConfirmDialog() }
     }
     private fun initUi() {
         val intent = Intent(this, MainActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
         startActivity(intent)
     }
-    private fun submitProject(){
-        validateSubmission()
-        val firstName = firstNameEditText.text.toString()
-        val lastName = lastNameEditText.text.toString()
-        val email = emailEditText.text.toString()
-        val projectLink = githubLinkEditText.text.toString()
-        submitViewModel.submitProject(
-            firstName, lastName, email,projectLink
-        )
-    }
-    private fun validateSubmission(){
+
+    private fun validateSubmission(): Boolean{
+        var areCredentialsValid = true
         val firstName = firstNameEditText.text.toString()
         val lastName = lastNameEditText.text.toString()
         val email = emailEditText.text.toString()
@@ -58,24 +53,37 @@ class SubmitActivity : AppCompatActivity() {
             firstName, lastName, email, projectLink
         )
         if (!inputValidator.isFirstNameValid()){
-            firstNameEditText.error = "First name is required!"
+            areCredentialsValid = false
+            firstNameEditText.error = getString(R.string.first_name_error)
             firstNameEditText.requestFocus()
         }
         if (!inputValidator.isLastNameValid()){
-            lastNameEditText.error = "Last name is required!"
+            areCredentialsValid = false
+            lastNameEditText.error = getString(R.string.last_name_error)
             lastNameEditText.requestFocus()
         }
         if (!inputValidator.isEmailValid()){
-            emailEditText.error = "Enter a valid email address!"
+            areCredentialsValid = false
+            emailEditText.error = getString(R.string.email_error)
             emailEditText.requestFocus()
         }
         if (!inputValidator.isProjectLinkValid()){
-            githubLinkEditText.error = "Project link is required!"
+            areCredentialsValid = false
+            githubLinkEditText.error = getString(R.string.link_error)
             githubLinkEditText.requestFocus()
         }
+        return areCredentialsValid
     }
     private fun initConfirmDialog(){
-        val dialog = ConfirmDialogFragment()
-        dialog.show(supportFragmentManager, dialog.tag)
+        if (validateSubmission()){
+            val dialog = ConfirmDialogFragment()
+            dialog.show(supportFragmentManager, dialog.tag)
+        }
+    }
+    private fun showLoading(){
+        submitProgressBar.visible()
+    }
+    private fun hideLoading(){
+        submitProgressBar.gone()
     }
 }
