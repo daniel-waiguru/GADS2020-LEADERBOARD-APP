@@ -6,16 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.viewModels
-import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.activity_submit.*
 import kotlinx.android.synthetic.main.fragment_confirm.*
 import tech.danielwaiguru.gads2020.R
-import tech.danielwaiguru.gads2020.ui.viewmodels.SubmitViewModel
 
-@AndroidEntryPoint
 class ConfirmDialogFragment : DialogFragment() {
-    private val submitViewModel: SubmitViewModel by viewModels()
+    private var clickListener: OnSubmitButtonClicked? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -26,7 +21,6 @@ class ConfirmDialogFragment : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        subscribeToLiveData()
         initListeners()
     }
     override fun onStart() {
@@ -38,39 +32,18 @@ class ConfirmDialogFragment : DialogFragment() {
     }
     private fun initListeners(){
         cancelImageView.setOnClickListener { closeConfirmDialog() }
-        submitButton.setOnClickListener {  }
+        onSubmitButtonClicked(submitButton)
     }
     private fun closeConfirmDialog(){
         dialog?.dismiss()
     }
-    private fun subscribeToLiveData(){
-        submitViewModel.submissionSuccess.observe(this, {
-            if (it == true){
-                initSuccessDialog()
-            }
-            else{
-                initFailureDialog()
-            }
-        })
+    private fun onSubmitButtonClicked(button: View){
+        clickListener?.onSubmitButtonClicked(button)
     }
-    //submit project details
-    private fun submitProject(){
-        val firstName = firstNameEditText.text.toString()
-        val lastName = lastNameEditText.text.toString()
-        val email = emailEditText.text.toString()
-        val projectLink = githubLinkEditText.text.toString()
-        submitViewModel.submitProject(
-            firstName, lastName, email,projectLink
-        )
+    fun setSubmitButtonClickListener(listener: OnSubmitButtonClicked){
+        this.clickListener = listener
     }
-    //show Success dialog
-    private fun initSuccessDialog(){
-        val dialog = SuccessDialogFragment()
-        dialog.show(childFragmentManager, dialog.tag)
-    }
-    //show Failure dialog
-    private fun initFailureDialog() {
-        val dialog = ErrorDialogFragment()
-        dialog.show(childFragmentManager, dialog.tag)
+    interface OnSubmitButtonClicked {
+        fun onSubmitButtonClicked(button: View)
     }
 }
