@@ -26,4 +26,5 @@
     <string name="last_name_error">Last name is required!</string>
     <string name="email_error">Enter a valid email address!</string>
     <string name="link_error">Project link is required!</string>
+    <string name="state_error">Unknown Configuration</string>
 </resources>

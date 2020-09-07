@@ -1,6 +1,7 @@
 package tech.danielwaiguru.gads2020.ui.views.learning
 
 import android.annotation.SuppressLint
+import android.content.res.Configuration
 import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Bundle
@@ -10,7 +11,9 @@ import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_learning.*
 import tech.danielwaiguru.gads2020.R
@@ -70,7 +73,15 @@ class LearningFragment : Fragment() {
     }
     private fun setupRecyclerView() = learningRecyclerView.apply {
         this.adapter = learningLeaderAdapter
-        this.layoutManager = LinearLayoutManager(requireContext())
+        this.layoutManager = when (resources.configuration.orientation){
+            Configuration.ORIENTATION_PORTRAIT ->{
+                LinearLayoutManager(requireContext())
+            }
+            Configuration.ORIENTATION_LANDSCAPE -> {
+                GridLayoutManager(requireContext(), 2, RecyclerView.VERTICAL, false)
+            }
+            else -> throw IllegalStateException(context.getString(R.string.state_error))
+        }
     }
     private fun retryDataLoad(){
         networkStatusChecker.performIfConnectedToInternet(::displayNoNetworkMessage){
