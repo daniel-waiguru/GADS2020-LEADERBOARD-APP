@@ -18,6 +18,9 @@ class SubmitViewModel @ViewModelInject constructor(
     private val _submissionSuccess: MutableLiveData<Boolean> = MutableLiveData()
     val submissionSuccess: LiveData<Boolean>
     get() = _submissionSuccess
+    private val _toast: MutableLiveData<String> = MutableLiveData()
+    val toast: LiveData<String>
+    get() = _toast
     fun submitProject(
         firstName: String, lastName: String, emailAddress: String, projectLink: String
     ) = viewModelScope.launch {
@@ -37,6 +40,7 @@ class SubmitViewModel @ViewModelInject constructor(
             is Resource.Error -> {
                 _submissionSuccess.postValue(false)
                 _loadingState.postValue(false)
+                _toast.value = result.message
             }
         }
     }

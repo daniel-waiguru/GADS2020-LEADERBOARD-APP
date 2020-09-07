@@ -16,7 +16,6 @@ import javax.inject.Singleton
 @InstallIn(ApplicationComponent::class)
 object NetworkingModule {
     private const val BASE_URL = "https://gadsapi.herokuapp.com"
-    private const val SUBMIT_URL = "https://docs.google.com/forms/d/e"
     @Provides
     fun provideOkHttpClient(): OkHttpClient =
         OkHttpClient.Builder()

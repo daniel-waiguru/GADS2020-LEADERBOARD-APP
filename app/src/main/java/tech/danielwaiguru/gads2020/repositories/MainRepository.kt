@@ -9,5 +9,5 @@ interface MainRepository {
     suspend fun fetchIQLeaders(): Resource<List<SkillIQLeader>>
     suspend fun submitProject(
         firstName: String, lastName: String, email: String, projectLink: String
-    ): Resource<Void>
+    ): Resource<Int>
 }

@@ -16,6 +16,6 @@ class MainRepositoryImpl
 
     override suspend fun submitProject(
         firstName: String, lastName: String, email: String, projectLink: String
-    ): Resource<Void> =
+    ): Resource<Int> =
         remoteDataSource.submitProject(firstName, lastName, email, projectLink)
 }

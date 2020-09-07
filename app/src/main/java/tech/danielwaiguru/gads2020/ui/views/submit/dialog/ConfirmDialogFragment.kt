@@ -27,7 +27,7 @@ class ConfirmDialogFragment : DialogFragment() {
         super.onStart()
         dialog?.window?.setLayout(WindowManager.LayoutParams.MATCH_PARENT,
         WindowManager.LayoutParams.WRAP_CONTENT)
-        dialog?.setCanceledOnTouchOutside(false)
+        dialog?.setCanceledOnTouchOutside(true)
         dialog?.setCancelable(false)
     }
     private fun initListeners(){

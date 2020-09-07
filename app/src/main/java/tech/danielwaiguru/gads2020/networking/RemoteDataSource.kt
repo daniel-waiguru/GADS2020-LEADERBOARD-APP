@@ -15,5 +15,5 @@ interface RemoteDataSource {
         lastName: String,
         emailAddress: String,
         projectLink: String
-    ): Resource<Void>
+    ): Resource<Int>
 }

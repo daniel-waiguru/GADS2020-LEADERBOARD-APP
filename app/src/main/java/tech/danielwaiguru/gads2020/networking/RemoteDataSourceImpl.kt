@@ -32,12 +32,20 @@ class RemoteDataSourceImpl @Inject constructor(private val apiService: ApiServic
         lastName: String,
         emailAddress: String,
         projectLink: String
-    ): Resource<Void> =
+    ): Resource<Int> =
         try {
             val result = apiService.submitProject(
-                firstName, lastName, emailAddress, projectLink
-            )
-            Resource.Success(result.body()!!)
+                firstName = firstName, lastName = lastName,
+                emailAddress = emailAddress, projectLink = projectLink
+            ).code()
+            Timber.d(result.toString())
+            if (result == 200){
+                Resource.Success(result)
+            }
+            else {
+                Timber.d(result.toString())
+                Resource.Error("Submission not successful", null)
+            }
         }
         catch (error: Throwable){
             Resource.Error(error.message.toString(), null)

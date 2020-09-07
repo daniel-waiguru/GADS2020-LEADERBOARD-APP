@@ -25,6 +25,6 @@ class ProjectInputsValidator : Validator {
 
     override fun isEmailValid(): Boolean = Patterns.EMAIL_ADDRESS.matcher(email).matches()
 
-    override fun isProjectLinkValid(): Boolean = projectLink.isEmpty() &&
+    override fun isProjectLinkValid(): Boolean =
             Patterns.WEB_URL.matcher(projectLink).matches()
 }

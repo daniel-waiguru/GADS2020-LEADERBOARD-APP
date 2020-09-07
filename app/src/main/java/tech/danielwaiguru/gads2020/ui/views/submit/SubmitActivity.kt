@@ -9,6 +9,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_submit.*
 import tech.danielwaiguru.gads2020.R
 import tech.danielwaiguru.gads2020.common.gone
+import tech.danielwaiguru.gads2020.common.toast
 import tech.danielwaiguru.gads2020.common.utils.ProjectInputsValidator
 import tech.danielwaiguru.gads2020.common.visible
 import tech.danielwaiguru.gads2020.ui.viewmodels.SubmitViewModel
@@ -25,15 +26,7 @@ class SubmitActivity : AppCompatActivity(), ConfirmDialogFragment.OnSubmitButton
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_submit)
         //setSupportActionBar(submitToolbar)
-        submitViewModel.loadingState.observe(this, {loading ->
-            if (loading == true){
-                showLoading()
-            }
-            else
-            {
-                hideLoading()
-            }
-        })
+
         subscribeToLiveData()
         initListeners()
     }
@@ -49,6 +42,18 @@ class SubmitActivity : AppCompatActivity(), ConfirmDialogFragment.OnSubmitButton
             else{
                 initFailureDialog()
             }
+        })
+        submitViewModel.loadingState.observe(this, {loading ->
+            if (loading == true){
+                showLoading()
+            }
+            else
+            {
+                hideLoading()
+            }
+        })
+        submitViewModel.toast.observe(this, {
+            this.toast(it)
         })
     }
     //submit project details
