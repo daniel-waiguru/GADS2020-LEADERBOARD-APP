@@ -69,7 +69,7 @@ class LearningFragment : Fragment() {
         initListeners()
     }
     private fun initListeners(){
-        retryButton.setOnClickListener { retryDataLoad() }
+        retryButton.setOnClickListener { loadData() }
     }
     private fun setupRecyclerView() = learningRecyclerView.apply {
         this.adapter = learningLeaderAdapter
@@ -83,7 +83,7 @@ class LearningFragment : Fragment() {
             else -> throw IllegalStateException(context.getString(R.string.state_error))
         }
     }
-    private fun retryDataLoad(){
+    private fun loadData(){
         networkStatusChecker.performIfConnectedToInternet(::displayNoNetworkMessage){
             learningLeaderViewModel.learningLeaders
         }
