@@ -33,6 +33,10 @@ No internet screen  and server response error screens respectively
 
 <image src="snapshots/not_internet.png" height="600px" />   <image src="snapshots/error.png" height="600px" />
 
+#### Landscape mode
+
+<image src="snapshots/learner-land.png" height="600px" />   <image src="snapshots/iq-land.png" height="600px" />
+
 #### Additional Features - uncomplete
 * Offline First - add Room to support offline caching pf data
 * Synchronize data :repeat: - add WorkManager to sysnchronize data with remote data
