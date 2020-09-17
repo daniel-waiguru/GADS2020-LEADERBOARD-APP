@@ -35,7 +35,7 @@ No internet screen  and server response error screens respectively
 
 #### Landscape mode
 
-<image src="snapshots/learner-land.png" height="600px" />   <image src="snapshots/iq-land.png" height="600px" />
+<image src="snapshots/learner-land.png" height="400px" />   <image src="snapshots/iq-land.png" height="400px" />
 
 #### Additional Features - uncomplete
 * Offline First - add Room to support offline caching pf data
