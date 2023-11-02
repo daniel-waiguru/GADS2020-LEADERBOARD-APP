@@ -78,7 +78,7 @@ dependencies {
     implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02'
     // When using Kotlin.
     kapt 'androidx.hilt:hilt-compiler:1.0.0-alpha02'
-    implementation "androidx.fragment:fragment-ktx:1.2.5"
+    implementation "androidx.fragment:fragment-ktx:1.6.2"
     //Timber
     implementation 'com.jakewharton.timber:timber:4.7.1'
 }
